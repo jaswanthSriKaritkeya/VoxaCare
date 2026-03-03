@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block styling %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock styling %}
+{% block content %}
+    <!-- hero Section Start -->
+    <div class="hero-sec">
+        <h1>Never Miss Your Medicine</h1>
+        <p>Smart reminders, automated calls & caretaker dashboard for your health — in one place.</p>
+        {% if user_authenticated %}
+          <a href="{{url_for('reminder.reminders')}}">
+            <button>Start Now</button>
+        </a>
+        {% else %}
+          <a href="{{url_for('auth.signin')}}">
+            <button>Start Now</button>
+        </a>
+        {% endif %}
+        
+    </div>
+    <!-- hero Section End... -->
+
+    <!-- Feartures Start -->
+     <section class="features">
+    <div class="feature">
+      <h3>📅 Easy Scheduling</h3>
+      <p>Set reminders with just a few clicks and never forget a dose again.</p>
+    </div>
+    <div class="feature">
+      <h3>📞 Automated Calls</h3>
+      <p>Get notified with voice alerts and calls at the right time.</p>
+    </div>
+    <div class="feature">
+      <h3>👨‍👩‍👧 Family Dashboard</h3>
+      <p>Caretakers can track & manage medicines for loved ones easily.</p>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 VoxaCare. All rights reserved.</p>
+  </footer>
+    
+{% endblock content %}

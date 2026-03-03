@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block styling %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/reminder.css')}}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    
+{% endblock styling %}
+{% block content %}
+<style>
+    .litepicker{
+        background: rgba(163, 163, 163, 0.37);
+    }
+    
+</style>
+    <div class="foreground">
+        <h2 id="text">Add Reminder</h2>
+        <h4 id="subtext">Remind today, relax tomorrow</h4>
+        <form action="/reminder" method="post">
+            <div class="input-blocks">
+                <input type="text" class="medicine_name" placeholder="   Medicine Name" maxlength="20" required>
+                <input type="text" id="startdate" name="startdate" minlength="{{today}}" required placeholder="   Start Date">
+                <input type="tet" id="enddate" name="enddate" placeholder="   End Date">
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      new Litepicker({
+        element: document.getElementById('startdate'),
+        format: 'DD-MM-YYYY'
+      });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+      new Litepicker({
+        element: document.getElementById('enddate'),
+        format: 'DD-MM-YYYY'
+      });
+    });
+  </script>
+{% endblock content %}

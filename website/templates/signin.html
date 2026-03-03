@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block styling %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/signin.css')}}" />
+{% endblock styling %} 
+{% block content %}
+    <div class="foreground">
+        <h2 id="text">Create Account</h2>
+        <h4 id="subtext">Have your new journey from VoxaCare from now</h4>
+            <form action="/signin" method="POST">
+                <div class="input-blocks">
+                <input type="text" placeholder="   Caretaker Name" name="caretakername" required>
+                <input type="tel" placeholder="   CareTaker Phone Number" name = "caretakerphone" maxlength="10" required>
+                <input type="text" placeholder="   Patient Name" name="patientname" required>
+                <input type="tel" placeholder="   Patient Phone Number" name="patientphone" maxlength="10" required>
+                <input type="age" placeholder="   Age of Patient" name="age" maxlength="3" required>
+                <select name="gender" id="gender">
+                    <option value="male">&nbsp;&nbsp;&nbsp;Male</option>
+                    <option value="female">&nbsp;&nbsp;&nbsp;Female</option>
+                    <option value="others">&nbsp;&nbsp;&nbsp;Others</option>
+                </select>
+                <input type="text" placeholder="   Username" name="username" required>
+                <input type="email" placeholder="   Email address" name="email" required>
+                <input type="password" placeholder="   Password (min 8 Characters )" name="password" minlength="8" required>
+                <input type="password" placeholder="   Confirm Password" name="ConPassword" minlength="8" required>
+                </div>
+                <div class="login">
+                    <p>Already have an Account? </p><a href="/login">&nbsp;Login</a>
+                </div>
+                <div class="submit-button">
+                    <button type="submit">Create</button>
+                </div>
+            </form>
+    </div>
+{% endblock content %}

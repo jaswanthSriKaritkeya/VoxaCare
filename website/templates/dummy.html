@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block styling %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/dummy.css')}}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+{% endblock styling %}
+{% block content %}
+    <div class="right">
+    <div class="register-box">
+      <h2>Create Account</h2>
+      <p>Join MedReminder and never miss a dose</p>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" maxlength="10" pattern="\d{10}" inputmode="numeric" placeholder="Phone Number" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <input type="date" id="reminder_date" name="reminder_date" min="{{ today }}" required>
+        <button type="submit">Register</button>
+      </form>
+      <div class="links">
+        <p>Already have an account? <a href="signin.html">Sign In</a></p>
+      </div>
+       <h2>Pick a Date</h2>
+  <input type="text" id="datepicker" placeholder="Select a date">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      new Litepicker({
+        element: document.getElementById('datepicker'),
+        format: 'DD-MM-YYYY'
+      });
+    });
+  </script>
+    </div>
+    
+{% endblock content %}
